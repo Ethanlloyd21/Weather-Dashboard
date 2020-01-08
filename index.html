@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather-Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!--Nav bar on top as a header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/calendar.jpg" alt="" height="40px" width="40px" id="auth-image" />
+                Weather Dashboard
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Ethanlloyd21/Weather-Dashboard"><img
+                                src="https://icon-library.net/images/github-icon-png/github-icon-png-29.jpg" alt=""
+                                height="32" width="32" />
+                            Github</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://openweathermap.org/api">Weather API <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Body-->
+
+    <div class="jumbotron" id="jumbo">
+            <h1 class="display-4">Weather-Dashboard</h1>
+            <p class="lead" id="intro">This is a simple web application, that tells the current temperature, humidity, wind speed, UV index, and 5-day forecast of a spicific location or city</p>
+            <hr class="my-4">
+            <p>You can enter multiple city on the search field.</p>
+            <span id="error"></span>
+            <p class="lead">
+                <div class="row form-group form-inline" id="rowDiv">
+                    <input type="text" name="city" id="cityName" class="form-control" placeholder="Enter City">
+                    <button type="button" class="btn btn-info" id="submitCity"><i class="fa fa-search"></i></button>
+                </div>
+            </p>
+    </div>
+
+    <div class="container">
+        <span id="error"></span>
+        <div class="row form-group form-inline" id="rowDiv">
+            <input type="text" name="city" id="cityName" class="form-control" placeholder="Enter City">
+            <button type="button" class="btn btn-info" id="submitCity"><i class="fa fa-search"></i></button>
+        </div>
+
+        <div id="show"></div>
+    </div>
+
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JavaScript CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+     <!-- JavaScript-->
+     <script src="index.js"></script>
+
+    
+</body>
+
+</html>
