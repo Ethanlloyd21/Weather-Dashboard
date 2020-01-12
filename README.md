@@ -4,8 +4,8 @@
 This app uses OpenWeather API to retrieve weather data for cities. An AJAX is used to hook into the API and retrieve data in JSON format. The app runs in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
 ## ALERT!
-Users will be asked if they want the app to track their location. If yes, the app will view the user's location weather condition.
-If no, the uses will be ask to prompt a city in the search bar.
+Users will be asked if they want the app to track their location. If yes, the app will output the user's location weather condition.
+If no, the user will be ask to prompt a city in the search bar.
 
 Alert prompt:
 * This app tracks you location. Make sure your browser's permission for location tracking is enable in order for the app to work. 
