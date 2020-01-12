@@ -191,7 +191,7 @@ $(document).ready(function () {
                     var forecast = moment(futureDate).format("MM/D/YYYY");
                     dayDate.text(forecast);
                     dayImg.attr("src", iconURL);
-                    tempForecast.text("Temperature: " + response.list[x].main.temp + " °F ");
+                    tempForecast.text("Temp: " + parseInt(response.list[x].main.temp).toFixed(1) + " °F ");
                     humidityFor.text("Humidity: " + response.list[x].main.humidity + "% ");
 
                     daysForecast.append(dayDate, dayImg, tempForecast, humidityFor);

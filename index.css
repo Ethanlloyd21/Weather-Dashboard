@@ -46,6 +46,9 @@ body, html {
 #place:hover {background-color:  black}
 
 #forecastbox {
-    font-size: smaller;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    background-color: black;
    
 }
