@@ -8,7 +8,7 @@ Users will be asked if they want the app to track their location.
 
 If yes, the app will output the user's location weather condition.
 Alert prompt:
-* This application will now track your location. Please go to your browser settings and enable location. 
+Alert: * This application will now track your location. Please go to your browser settings and enable location. 
 
 If no, the user will be ask to prompt a city of their choice in the search bar.
 
