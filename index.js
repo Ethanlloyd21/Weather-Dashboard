@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    //setIcons(icon, document.getElementById('icon1'));
     var apiKey = "&appid=6ad58c387533b011c868da37071d9cec";
 
     var latt;
@@ -12,7 +11,7 @@ $(document).ready(function () {
     cityNames.push(city);
     getLocation();
 
-    //getting the user's location via geoLocation
+
     function getLocation() {
 
         if (navigator.geolocation) {
@@ -22,7 +21,7 @@ $(document).ready(function () {
             alert("Geolocation is not supported by this browser.");
         }
     }
-    //if the user is successfuly located via geoLocation
+
     function geoSuccess(position) {
         var latt = position.coords.latitude;
         var longg = position.coords.longitude;
@@ -54,7 +53,9 @@ $(document).ready(function () {
                 $('#location').append(cityImg);
 
                 fiveDayFor(data.name);
-                /*$('#uV').append('UV Index: ' + getUvIndex(lat, lon));*/
+
+                /*Spencer gave me this code and I want to keep it here. It is a 2nd solution to the ajax return problem
+                $('#uV').append('UV Index: ' + getUvIndex(lat, lon));*/
 
                 /*
                 getUvIndex(lat, lon).then(function (response) {
@@ -96,28 +97,6 @@ $(document).ready(function () {
             $('#error').html('Search field cannot be empty');
         }
     });
-
-    $('#place').click(function () {
-        var loc = $(this).attr("data-name");
-        $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/weather?q=" + loc + "&units=imperial" + apiKey,
-            method: "GET"
-        }).then(function (response) {
-            currentCity(city);
-            fiveDayFor(city);
-        });
-
-    });
-
-
-    /*
-    function setIcons(icon, iconID) {
-        var skycons = new Skycons({ color: "white"});
-        var currentIcon = icon.replace(/-/g, "_").toUpperCase();
-        skycons.play();
-        return skycons.set(iconID, Skycons[currentIcon]);
-    }
-    */
 
     function renderButtons(city) {
         $('buttons-view').empty();
@@ -226,8 +205,16 @@ $(document).ready(function () {
 
     }
 
+    function displayCityInfo() {
+        var userCity = $(this).attr("data-name");
+        console.log(userCity);
 
 
+        currentCity(userCity);
+        fiveDayFor(userCity);
+    }
+
+    $(document).on('click', '#place', displayCityInfo);
 
 
 });

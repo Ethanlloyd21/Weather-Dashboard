@@ -34,13 +34,6 @@ body, html {
     background-color: #323232;
 }
 
-p, #fiveForecast, #forecast {
-    padding: 20px;
-
-}
-
-
-
 #rowDiv {
     padding: 10px;
 }
@@ -54,6 +47,5 @@ p, #fiveForecast, #forecast {
 
 #forecastbox {
     font-size: smaller;
-    margin-left: 15px;
-    margin-top: 10px;
+   
 }
