@@ -32,14 +32,14 @@ $(document).ready(function () {
             type: "GET",
             dataType: "json",
             success: function (data) {
-                console.log(data);
-                console.log(data.coord.lat);
+
                 var today = new Date(Date.now());
                 var date = today.toDateString();
                 var lat = data.coord.lat;
                 var lon = data.coord.lon;
-                console.log(lon);
-                //append result
+                var iconObj = data.weather[0].icon;
+
+
                 $('#location').text(data.name);
                 $('#dateNow').text(date);
                 $('#con').text('Current condition: ' + data.weather[0].description);
@@ -47,6 +47,13 @@ $(document).ready(function () {
                 $('#humidity').text('Humidity: ' + data.main.humidity + '%');
                 $('#windSpeed').text('Wind Speed: ' + data.wind.speed + ' MPH');
                 updateUvIndex(lat, lon);
+
+                var iconURL = "https://openweathermap.org/img/w/" + iconObj + ".png";
+                var cityImg = $("<img>");
+                cityImg.attr("src", iconURL);
+                $('#location').append(cityImg);
+
+                fiveDayFor(data.name);
                 /*$('#uV').append('UV Index: ' + getUvIndex(lat, lon));*/
 
                 /*
@@ -138,8 +145,8 @@ $(document).ready(function () {
                 var date = today.toDateString();
                 var lat = data.coord.lat;
                 var lon = data.coord.lon;
-                console.log(lon);
-                //append result
+                var iconObj = data.weather[0].icon;
+
                 $('#location').text(data.name);
                 $('#dateNow').text(date);
                 $('#con').text('Current condition: ' + data.weather[0].description);
@@ -148,19 +155,16 @@ $(document).ready(function () {
                 $('#windSpeed').text('Wind Speed: ' + data.wind.speed + ' MPH');
                 updateUvIndex(lat, lon);
 
+                var iconURL = "https://openweathermap.org/img/w/" + iconObj + ".png";
+                var cityImg = $("<img>");
+                cityImg.attr("src", iconURL);
+                $('#location').append(cityImg);
+
 
             }
         });
     }
 
-    function getUvIndex(latt, longg) {
-        var value;
-        return $.ajax({
-            url: 'http://api.openweathermap.org/data/2.5/uvi?' + apiKey + '&lat=' + latt + '&lon=' + longg,
-            method: "GET"
-        });
-
-    }
     function updateUvIndex(latt, longg) {
         var value;
         $.ajax({
