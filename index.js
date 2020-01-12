@@ -15,6 +15,7 @@ $(document).ready(function () {
     else {
         $('#info').text('Enter a city on the search box!');
         $('#info2').text('Forget the weather person on your local cable network. Today, smartphone and web apps provide up-to-the-minute weather alerts and updates that can’t be found anywhere else.');
+
     }
 
 
@@ -35,7 +36,7 @@ $(document).ready(function () {
         $('#info2').remove();
 
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/weather?lat=" + latt + "&lon=" + longg + "&units=imperial" + apiKey,
+            url: "https://api.openweathermap.org/data/2.5/weather?lat=" + latt + "&lon=" + longg + "&units=imperial" + apiKey,
             type: "GET",
             dataType: "json",
             success: function (data) {
@@ -95,7 +96,7 @@ $(document).ready(function () {
         if (city !== '') {
 
             $.ajax({
-                url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + apiKey,
+                url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + apiKey,
                 method: "GET"
             }).then(function (response) {
                 console.log(response);
@@ -127,7 +128,7 @@ $(document).ready(function () {
     function currentCity(city) {
 
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + apiKey,
+            url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + apiKey,
             type: "GET",
             dataType: "json",
             success: function (data) {
@@ -158,7 +159,7 @@ $(document).ready(function () {
     function updateUvIndex(latt, longg) {
         var value;
         $.ajax({
-            url: 'http://api.openweathermap.org/data/2.5/uvi?' + apiKey + '&lat=' + latt + '&lon=' + longg,
+            url: 'https://api.openweathermap.org/data/2.5/uvi?' + apiKey + '&lat=' + latt + '&lon=' + longg,
             method: "GET"
         }).then(function (response) {
             $('#uV').text('UV Index: ' + response.value);
@@ -171,7 +172,7 @@ $(document).ready(function () {
 
         var APIKey = '6ad58c387533b011c868da37071d9cec';
         var fiveURL =
-            "http://api.openweathermap.org/data/2.5/forecast?appid=" +
+            "https://api.openweathermap.org/data/2.5/forecast?appid=" +
             APIKey +
             "&q=" +
             userCity +
