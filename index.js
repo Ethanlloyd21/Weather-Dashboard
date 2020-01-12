@@ -1,15 +1,21 @@
 $(document).ready(function () {
 
-    alert("This application tracks your location. Please go to you browser settings and allow location. For Google Chrome browser go to: " +
-        "Settings > Advanced > Privacy and Security > Permissions > and then ALLOW Location and Insecure content");
-
     var apiKey = "&appid=6ad58c387533b011c868da37071d9cec";
 
     var latt;
     var longg;
     var cityNames = [];
 
-    getLocation();
+    var question = confirm('Do you want this app to track your location? Ok for Yes , Cancel for No');
+    if (question === true) {
+        alert("This application will now track your location. Please go to your browser settings and enable location. For Google Chrome browser go to: " +
+            "Settings > Advanced > Privacy and Security > Permissions > and then ALLOW Location and Insecure content");
+        getLocation();
+    }
+    else {
+        $('#info').text('Enter a city on the search box!');
+        $('#info2').text('Forget the weather person on your local cable network. Today, smartphone and web apps provide up-to-the-minute weather alerts and updates that can’t be found anywhere else.');
+    }
 
 
     function getLocation() {
@@ -25,6 +31,8 @@ $(document).ready(function () {
     function geoSuccess(position) {
         var latt = position.coords.latitude;
         var longg = position.coords.longitude;
+        $('#info').remove();
+        $('#info2').remove();
 
         $.ajax({
             url: "http://api.openweathermap.org/data/2.5/weather?lat=" + latt + "&lon=" + longg + "&units=imperial" + apiKey,
@@ -80,6 +88,8 @@ $(document).ready(function () {
             .val()
             .trim();
         cityNames.push(city);
+        $('#info').remove();
+        $('#info2').remove();
 
 
         if (city !== '') {
