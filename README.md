@@ -6,7 +6,7 @@ This app uses OpenWeather API to retrieve weather data for cities. An AJAX is us
 ## Warning!
 * This app tracks you location. Make sure your browser's permission for location tracking is enable in order for the app to work.
 
-![](/image/weather.PNG)
+![](/image/weather2.PNG)
 
 ### User story
 As a traveler
