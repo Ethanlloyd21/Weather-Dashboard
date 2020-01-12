@@ -1,14 +1,14 @@
 $(document).ready(function () {
 
+    alert("This application tracks your location. Please go to you browser settings and allow location. For Google Chrome browser go to: " +
+        "Settings > Advanced > Privacy and Security > Permissions > and then ALLOW Location and Insecure content");
+
     var apiKey = "&appid=6ad58c387533b011c868da37071d9cec";
 
     var latt;
     var longg;
     var cityNames = [];
-    var city = $('#cityName')
-        .val()
-        .trim();
-    cityNames.push(city);
+
     getLocation();
 
 
@@ -81,6 +81,7 @@ $(document).ready(function () {
             .trim();
         cityNames.push(city);
 
+
         if (city !== '') {
 
             $.ajax({
@@ -152,8 +153,6 @@ $(document).ready(function () {
         }).then(function (response) {
             $('#uV').text('UV Index: ' + response.value);
 
-
-
         });
 
     }
@@ -167,6 +166,9 @@ $(document).ready(function () {
             "&q=" +
             userCity +
             "&units=imperial";
+
+
+        $('#fiveForecast').text('5-day Forecast:');
 
         $.ajax({
             url: fiveURL,
@@ -207,8 +209,6 @@ $(document).ready(function () {
 
     function displayCityInfo() {
         var userCity = $(this).attr("data-name");
-        console.log(userCity);
-
 
         currentCity(userCity);
         fiveDayFor(userCity);
