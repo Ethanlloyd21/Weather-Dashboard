@@ -5,6 +5,12 @@ This app uses OpenWeather API to retrieve weather data for cities. An AJAX is us
 
 ![](/image/weather.PNG)
 
+### User story
+As a traveler
+I want to see the weather outlook for multiple cities
+so that I can plan a trip accordingly
+
+
 ### How does it work?
 
 1. When the app is launched, a geolocation API locates the user's location and uses that coordinates to view the user's current location weather. 
