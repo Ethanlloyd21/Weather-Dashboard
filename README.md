@@ -2,7 +2,7 @@
 
 This app uses OpenWeather API to retrieve weather data for cities. An AJAX is used to hook into the API and retrieve data in JSON format. The app runs in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
-![](/images/weather.PNG)
+![](/image/weather.PNG)
 
 ### How does it work?
 
