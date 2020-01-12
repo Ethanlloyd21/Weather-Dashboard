@@ -8,8 +8,7 @@ $(document).ready(function () {
 
     var question = confirm('Do you want this app to track your location? Ok for Yes , Cancel for No');
     if (question === true) {
-        alert("This application will now track your location. Please go to your browser settings and enable location. For Google Chrome browser go to: " +
-            "Settings > Advanced > Privacy and Security > Permissions > and then ALLOW Location and Insecure content");
+        alert("This application will now track your location. Please go to your browser's setting and enable location.");
         getLocation();
     }
     else {
