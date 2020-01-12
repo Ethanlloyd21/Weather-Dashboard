@@ -4,14 +4,13 @@
 This app uses OpenWeather API to retrieve weather data for cities. An AJAX is used to hook into the API and retrieve data in JSON format. The app runs in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
 ## ALERT!
-Users will be asked if they want the app to track their location. If yes, the app will output the user's location weather condition.
-If no, the user will be ask to prompt a city in the search bar.
+Users will be asked if they want the app to track their location. 
 
-Alert prompt:
-* This app tracks you location. Make sure your browser's permission for location tracking is enable in order for the app to work. 
-* For Google Chrome, go to:
-1. Web Settings > Advance > Privacy and Security >
-2. Under permissions "Allow" Location and Insecure Content
+If yes, the app will output the user's location weather condition.
+* Alert prompt: This application will now track your location. Please go to your browser settings and enable location. 
+
+If no, the user will be ask to prompt a city of their choice in the search bar.
+
 
 ![](/image/weather2.PNG)
 
