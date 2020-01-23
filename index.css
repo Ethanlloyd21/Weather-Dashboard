@@ -31,7 +31,7 @@ body, html {
     padding: 20px;
     margin-top: 30px;
     margin-bottom: 10px;
-    background-color: #323232;
+    
 }
 
 #rowDiv {
@@ -58,4 +58,9 @@ body, html {
 
 #leftRow, #rightRow {
     padding: 20px;
+}
+
+#rightRow {
+    border: #B5509C 1px solid;
+    border-radius: 25px;
 }

@@ -50,9 +50,16 @@ $(document).ready(function () {
                 $('#location').text(data.name);
                 $('#dateNow').text(date);
                 $('#con').text('Current condition: ' + data.weather[0].description);
-                $('#temp').text('Temperature: ' + (parseInt(data.main.temp).toFixed(1)) + ' ' + String.fromCharCode(176) + 'F');
+                $('#temp').text('Now: ' + (parseInt(data.main.temp).toFixed(1)) + ' ' + String.fromCharCode(176) + 'F');
                 $('#humidity').text('Humidity: ' + data.main.humidity + '%');
                 $('#windSpeed').text('Wind Speed: ' + data.wind.speed + ' MPH');
+                $('#like').text('Feels like: ' + (parseInt(data.main.feels_like).toFixed(1) + ' ' + String.fromCharCode(176) + 'F'));
+                $('#low').text('Lows for today : ' + (parseInt(data.main.temp_min).toFixed(1) + ' ' + String.fromCharCode(176) + 'F'));
+                $('#high').text('Highs for today: ' + (parseInt(data.main.temp_max).toFixed(1) + ' ' + String.fromCharCode(176) + 'F'));
+                $('#rise').text('Sunrise: ' + unix_Time(data.sys.sunrise));
+                $('#set').text('Sunset: ' + unix_Time(data.sys.sunset));
+                $('#pressure').text('Pressure: ' + data.main.pressure + ' ' + 'Pa');
+                console.log(unix_Time(data.sys.sunrise));
                 updateUvIndex(lat, lon);
 
                 var iconURL = "https://openweathermap.org/img/w/" + iconObj + ".png";
@@ -140,9 +147,16 @@ $(document).ready(function () {
                 $('#location').text(data.name);
                 $('#dateNow').text(date);
                 $('#con').text('Current condition: ' + data.weather[0].description);
-                $('#temp').text('Temperature: ' + (parseInt(data.main.temp).toFixed(1)) + ' ' + String.fromCharCode(176) + 'F');
+                $('#temp').text('Now: ' + (parseInt(data.main.temp).toFixed(1)) + ' ' + String.fromCharCode(176) + 'F');
                 $('#humidity').text('Humidity: ' + data.main.humidity + '%');
                 $('#windSpeed').text('Wind Speed: ' + data.wind.speed + ' MPH');
+                $('#like').text('Feels like: ' + (parseInt(data.main.feels_like).toFixed(1) + ' ' + String.fromCharCode(176) + 'F'));
+                $('#low').text('Lows for today : ' + (parseInt(data.main.temp_min).toFixed(1) + ' ' + String.fromCharCode(176) + 'F'));
+                $('#high').text('Highs for today: ' + (parseInt(data.main.temp_max).toFixed(1) + ' ' + String.fromCharCode(176) + 'F'));
+                $('#rise').text('Sunrise: ' + unix_Time(data.sys.sunrise));
+                $('#set').text('Sunset: ' + unix_Time(data.sys.sunset));
+                $('#pressure').text('Pressure: ' + data.main.pressure + ' ' + 'Pa');
+                console.log(unix_Time(data.sys.sunrise));
                 updateUvIndex(lat, lon);
 
                 var iconURL = "https://openweathermap.org/img/w/" + iconObj + ".png";
@@ -195,19 +209,25 @@ $(document).ready(function () {
 
                     var dayDate = $('<h6>');
                     var dayImg = $('<img>');
-                    var tempForecast = $('<h6>');
+                    var desc = $('<h6>');
+                    var tempForecastMax = $('<h6>');
+                    var tempForecastMin = $('<h6>');
+
                     var humidityFor = $('<h6>');
                     var iconURL = "https://openweathermap.org/img/w/" + iconObj + ".png";
                     var today = new Date();
                     var futureDate = new Date();
                     futureDate.setDate(today.getDate() + count);
-                    var forecast = moment(futureDate).format("MM/D/YYYY");
+                    var forecast = moment(futureDate).format("MM/D");
                     dayDate.text(forecast);
                     dayImg.attr("src", iconURL);
-                    tempForecast.text("Temp: " + parseInt(response.list[x].main.temp).toFixed(1) + " °F ");
+                    desc.text(response.list[x].weather[0].description);
+                    tempForecastMin.text("Min.: " + parseInt(response.list[x].main.temp_min).toFixed(1) + " °F ");
+                    tempForecastMax.text("Max: " + parseInt(response.list[x].main.temp_max).toFixed(1) + " °F ");
                     humidityFor.text("Humidity: " + response.list[x].main.humidity + "% ");
-
-                    daysForecast.append(dayDate, dayImg, tempForecast, humidityFor);
+                    console.log(response);
+                    console.log(unix_Time(response.list[x].dt));
+                    daysForecast.append(dayDate, dayImg, desc, tempForecastMax, tempForecastMin, humidityFor);
 
 
                     //daysForecast.attr("class", "days");
@@ -218,6 +238,22 @@ $(document).ready(function () {
         });
 
 
+    }
+
+    function unix_Time(t) {
+        var dt = new Date(t * 1000);
+        var hr = dt.getHours();
+        var m = "0" + dt.getMinutes();
+
+        var time;
+        if (hr > 12) {
+            time = "pm"
+        }
+        else {
+            time = "am"
+        }
+
+        return hr + ':' + m.substr(-2) + ' ' + time;
     }
 
     function displayCityInfo() {
