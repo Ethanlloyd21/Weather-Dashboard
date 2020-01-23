@@ -191,7 +191,7 @@ $(document).ready(function () {
             for (var x = 0; x < response.list.length; ++x) {
                 if (response.list[x].dt_txt.includes('00:00:00')) {
                     iconObj = response.list[x].weather[0].icon;
-                    var daysForecast = $('<div class="col-sm-12 col-md-2 col-lg-0" id="days">');
+                    var daysForecast = $('<div class="col-sm-12 col-md-auto col-lg-0" id="days">');
 
                     var dayDate = $('<h6>');
                     var dayImg = $('<img>');
