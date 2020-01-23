@@ -189,13 +189,14 @@ $(document).ready(function () {
             count = 1;
 
             for (var x = 0; x < response.list.length; ++x) {
-                if (response.list[x].dt_txt.includes("00:00:00")) {
+                if (response.list[x].dt_txt.includes('00:00:00')) {
                     iconObj = response.list[x].weather[0].icon;
-                    var daysForecast = $("<div>");
-                    var dayDate = $("<h6>");
-                    var dayImg = $("<img>");
-                    var tempForecast = $("<h6>");
-                    var humidityFor = $("<h6>");
+                    var daysForecast = $('<div class="col-sm-12 col-md-2 col-lg-0" id="days">');
+
+                    var dayDate = $('<h6>');
+                    var dayImg = $('<img>');
+                    var tempForecast = $('<h6>');
+                    var humidityFor = $('<h6>');
                     var iconURL = "https://openweathermap.org/img/w/" + iconObj + ".png";
                     var today = new Date();
                     var futureDate = new Date();
@@ -207,7 +208,9 @@ $(document).ready(function () {
                     humidityFor.text("Humidity: " + response.list[x].main.humidity + "% ");
 
                     daysForecast.append(dayDate, dayImg, tempForecast, humidityFor);
-                    daysForecast.attr("class", "days");
+
+
+                    //daysForecast.attr("class", "days");
                     box.append(daysForecast);
                     ++count;
                 }

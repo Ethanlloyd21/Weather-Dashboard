@@ -9,7 +9,7 @@ body, html {
 }
 
 #top-row {
-    background-image: url("image/cityB.jpg");
+    background-image: url("image/rain.jpg");
     height: 50%;
   
     /* Center and scale the image nicely */
@@ -47,8 +47,15 @@ body, html {
 
 #forecastbox {
     display: flex;
-    justify-content: space-around;
     padding: 30px;
     background-color: black;
    
+}
+
+#days {
+    padding: 20px;
+}
+
+#leftRow, #rightRow {
+    padding: 20px;
 }
