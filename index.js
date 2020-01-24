@@ -210,8 +210,8 @@ $(document).ready(function () {
                     var dayDate = $('<h6>');
                     var dayImg = $('<img>');
                     var desc = $('<h6>');
-                    var tempForecastMax = $('<h6>');
-                    var tempForecastMin = $('<h6>');
+                    var tempForecast = $('<h6>');
+
 
                     var humidityFor = $('<h6>');
                     var iconURL = "https://openweathermap.org/img/w/" + iconObj + ".png";
@@ -222,12 +222,12 @@ $(document).ready(function () {
                     dayDate.text(forecast);
                     dayImg.attr("src", iconURL);
                     desc.text(response.list[x].weather[0].description);
-                    tempForecastMin.text("Min.: " + parseInt(response.list[x].main.temp_min).toFixed(1) + " °F ");
-                    tempForecastMax.text("Max: " + parseInt(response.list[x].main.temp_max).toFixed(1) + " °F ");
+                    tempForecast.text("Temp.: " + parseInt(response.list[x].main.temp).toFixed(1) + " °F ");
+
                     humidityFor.text("Humidity: " + response.list[x].main.humidity + "% ");
                     console.log(response);
                     console.log(unix_Time(response.list[x].dt));
-                    daysForecast.append(dayDate, dayImg, desc, tempForecastMax, tempForecastMin, humidityFor);
+                    daysForecast.append(dayDate, dayImg, desc, tempForecast, humidityFor);
 
 
                     //daysForecast.attr("class", "days");

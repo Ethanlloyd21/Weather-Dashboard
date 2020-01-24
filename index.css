@@ -43,7 +43,7 @@ body, html {
     background-color: #DA70D6;
     color: white;
 }
-#place:hover {background-color:  black}
+#place:hover {background-color: gray}
 
 #forecastbox {
     display: flex;
@@ -57,11 +57,13 @@ body, html {
 }
 
 #leftRow, #rightRow {
-    padding: 20px;
+   padding: 20px;
+
 }
 
 #rightRow {
-    border: #B5509C 1px solid;
+    border: #B5509C 5px solid;
     border-radius: 25px;
 }
+
 
