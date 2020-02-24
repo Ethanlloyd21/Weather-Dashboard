@@ -44,4 +44,5 @@ so that I can plan a trip accordingly
 * Temperature
 * Humidity
 
-
+## Author
+* Lloyd Marcelino, 2020
